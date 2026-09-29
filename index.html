@@ -52,6 +52,9 @@
       background: var(--bg-soft); border: 1px solid var(--line); border-radius: 20px; padding: 36px;
       display: flex; flex-direction: column; gap: 18px;
     }
+    .card-link { color: var(--ink); transition: border-color .15s, transform .15s, box-shadow .15s; }
+    .card-link:hover { color: var(--ink); border-color: var(--green); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+    .ver-mas { margin-top: auto; font-weight: 600; font-size: 15px; color: var(--green); }
     .icon-badge {
       width: 52px; height: 52px; border-radius: 14px; background: var(--green-soft);
       display: flex; align-items: center; justify-content: center; color: var(--green);
@@ -127,13 +130,14 @@
         <p style="color: var(--muted); font-size: 15.5px;">Salidas, campamentos y viajes deportivos para colegios: naturaleza, integración y educación física.</p>
       </div>
 
-      <div class="card">
+      <a class="card card-link" href="pension.html">
         <div class="icon-badge">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>
         </div>
         <h3 style="font-size: 21px;">Pensión para futbolistas</h3>
         <p style="color: var(--muted); font-size: 15.5px;">Una casa en Buenos Aires para jugadores del interior y del exterior: pensión completa, control las 24 horas y pruebas en clubes según su nivel.</p>
-      </div>
+        <span class="ver-mas">Ver más →</span>
+      </a>
 
       <div class="card">
         <div class="icon-badge">

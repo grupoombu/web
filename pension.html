@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pensión para futbolistas — Grupo Ombú</title>
+<meta name="description" content="Una casa en Buenos Aires para futbolistas del interior y del exterior: pensión completa, control las 24 horas y pruebas en clubes según su nivel.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+<style>
+  :root {
+    --ink: #000000;
+    --grafito: #50504f;
+    --green: #009d19;
+    --green-dark: #007a13;
+    --green-soft: #eef1cf;
+    --lima: #d6dc82;
+    --bg: #ffffff;
+    --bg-soft: #f7f7f5;
+    --muted: #50504f;
+    --line: #e5e7e6;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Poppins', system-ui, -apple-system, sans-serif; }
+  h1, h2, h3 { margin: 0; font-weight: 600; color: var(--ink); }
+  p { margin: 0; line-height: 1.6; }
+  a { color: var(--green); text-decoration: none; }
+  a:hover { color: var(--green-dark); }
+  .container { max-width: 1120px; margin: 0 auto; padding: 0 32px; }
+  section { padding: 88px 0; }
+  .eyebrow { text-transform: uppercase; letter-spacing: 0.14em; font-size: 13px; font-weight: 600; color: var(--green); }
+  .btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 28px; border-radius: 999px; font-weight: 600; font-size: 16px; white-space: nowrap; }
+  .btn-primary { background: var(--green); color: #fff; }
+  .btn-primary:hover { background: var(--green-dark); color: #fff; }
+  .btn-ghost { background: transparent; color: var(--ink); border: 1.5px solid var(--line); }
+  .btn-ghost:hover { border-color: var(--green); color: var(--green); }
+
+  /* Header */
+  .header { position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,0.92); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); }
+  .header .container { display: flex; align-items: center; justify-content: space-between; height: 76px; gap: 16px; }
+  .brand { display: flex; align-items: center; gap: 12px; color: var(--ink); }
+  .brand img { height: 44px; width: auto; }
+  .brand span { font-weight: 700; font-size: 19px; letter-spacing: 0.04em; }
+  .back { font-size: 15px; font-weight: 500; color: var(--ink); }
+
+  /* Hero */
+  .hero { padding-top: 64px; padding-bottom: 72px; }
+  .hero .container { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 56px; align-items: center; }
+  .hero h1 { font-size: 48px; line-height: 1.12; margin: 14px 0 20px; }
+  .hero p.lead { font-size: 18px; color: var(--muted); max-width: 540px; }
+  .hero .actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 30px; }
+  .hero .photo { border-radius: 24px; overflow: hidden; aspect-ratio: 1 / 1; }
+  .hero .photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+  .facts { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 26px; }
+  .facts span { padding: 8px 16px; border-radius: 999px; background: var(--green-soft); font-size: 14px; font-weight: 500; }
+
+  /* Incluye */
+  .soft { background: var(--bg-soft); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .head { display: flex; flex-direction: column; gap: 14px; max-width: 680px; margin-bottom: 44px; }
+  .head h2 { font-size: 34px; }
+  .head p { color: var(--muted); font-size: 17px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+  .item { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 24px; display: flex; gap: 16px; align-items: flex-start; }
+  .ic { width: 46px; height: 46px; border-radius: 12px; background: var(--green-soft); color: var(--green); flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+  .ic svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .item h3 { font-size: 17px; margin-bottom: 4px; }
+  .item p { font-size: 14.5px; color: var(--muted); }
+
+  /* Galería */
+  .gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; max-width: 900px; }
+  .gallery img { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; border-radius: 16px; display: block; }
+  .note { font-size: 14px; color: var(--muted); margin-top: 18px; }
+
+  /* Para quién */
+  .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+  .who { border: 1px solid var(--line); border-radius: 20px; padding: 32px; display: flex; flex-direction: column; gap: 12px; background: var(--bg-soft); }
+  .who h3 { font-size: 21px; }
+  .who p { color: var(--muted); font-size: 15.5px; }
+
+  /* Condiciones */
+  .conds { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-top: 8px; }
+  .cond { border-radius: 16px; padding: 22px; background: rgba(214,220,130,0.12); border: 1px solid rgba(214,220,130,0.45); }
+  .cond .k { font-size: 12px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--lima); font-weight: 600; }
+  .cond .v { font-size: 17px; font-weight: 600; color: #fff; margin-top: 6px; }
+  .dark { background: var(--ink); color: #fff; }
+  .dark h2 { color: #fff; }
+
+  /* Pasos */
+  .steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; }
+  .step { display: flex; flex-direction: column; gap: 12px; }
+  .num { width: 40px; height: 40px; border-radius: 50%; background: var(--green); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 18px; }
+  .step h3 { font-size: 18px; }
+  .step p { color: var(--muted); font-size: 15px; }
+
+  /* CTA + footer */
+  .cta { text-align: center; }
+  .cta .container { display: flex; flex-direction: column; align-items: center; gap: 22px; }
+  .cta h2 { font-size: 34px; max-width: 620px; }
+  .cta p { font-size: 17px; color: var(--muted); max-width: 540px; }
+  .footer { border-top: 1px solid var(--line); }
+  .footer .container { display: flex; align-items: center; justify-content: space-between; padding-top: 28px; padding-bottom: 28px; flex-wrap: wrap; gap: 14px; }
+  .footer .brand img { height: 30px; }
+  .footer small { font-size: 14px; color: var(--muted); }
+
+  @media (max-width: 900px) {
+    .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .conds, .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 760px) {
+    .container { padding: 0 16px; }
+    section { padding: 60px 0; }
+    .hero .container { grid-template-columns: 1fr; gap: 32px; }
+    .hero h1 { font-size: 34px; }
+    .hero .photo { aspect-ratio: 4 / 3; }
+    .hero .photo img { object-position: center 20%; }
+    .head h2, .cta h2 { font-size: 27px; }
+    .grid-3, .grid-2 { grid-template-columns: 1fr; }
+    .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .brand span { font-size: 16px; }
+    .brand img { height: 38px; }
+    .btn { padding: 13px 22px; font-size: 15px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<div class="header">
+  <div class="container">
+    <a class="brand" href="index.html"><img src="img/logo.jpg" alt="Grupo Ombú"><span>GRUPO OMBÚ</span></a>
+    <a class="back" href="index.html#servicios">← Todas las propuestas</a>
+  </div>
+</div>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="container">
+    <div>
+      <span class="eyebrow">Pensión para futbolistas</span>
+      <h1>Un hogar en Buenos Aires para dar el salto</h1>
+      <p class="lead">Una casa pensada para jugadores que llegan del interior o del exterior: pensión completa, control las 24 horas y pruebas en clubes de Buenos Aires según su nivel. Ellos se enfocan en jugar; nosotros, en que estén bien.</p>
+      <div class="facts">
+        <span>⚽ Fútbol masculino</span>
+        <span>A partir de categoría 2013</span>
+        <span>Estadía a convenir</span>
+      </div>
+      <div class="actions">
+        <a class="btn btn-primary" href="https://wa.me/5491169625784?text=Hola%2C%20quiero%20info%20sobre%20la%20pensi%C3%B3n%20para%20futbolistas" target="_blank" rel="noopener">Consultanos por WhatsApp</a>
+        <a class="btn btn-ghost" href="#la-casa">Ver la casa</a>
+      </div>
+    </div>
+    <div class="photo"><img src="img/pension/parque.jpg" alt="Área parquizada con pileta de la pensión"></div>
+  </div>
+</section>
+
+<!-- ===== QUÉ INCLUYE ===== -->
+<section class="soft">
+  <div class="container">
+    <div class="head">
+      <span class="eyebrow">Qué incluye</span>
+      <h2>Todo resuelto, para que solo piensen en la cancha</h2>
+    </div>
+    <div class="grid-3">
+      <div class="item"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></div>
+        <div><h3>Habitaciones con baño privado</h3><p>Habitaciones de 3 jugadores, cada una con su propio baño.</p></div></div>
+      <div class="item"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 3v8a3 3 0 0 0 6 0V3M7 3v18M17 3c-2 2-3 4-3 7h3v11"/></svg></div>
+        <div><h3>Pensión completa</h3><p>Desayuno, almuerzo, merienda y cena todos los días.</p></div></div>
+      <div class="item"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 21c-5-3-8-6.5-8-11a4 4 0 0 1 8-1 4 4 0 0 1 8 1c0 4.5-3 8-8 11z"/></svg></div>
+        <div><h3>Menú para deportistas</h3><p>Alimentación adaptada a la exigencia del entrenamiento.</p></div></div>
+      <div class="item"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <div><h3>Control las 24 horas</h3><p>Docentes a cargo por turno, día y noche.</p></div></div>
+      <div class="item"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M12 9v6M9 12h6"/></svg></div>
+        <div><h3>Seguro y emergencias médicas</h3><p>Cada jugador está cubierto durante su estadía.</p></div></div>
+      <div class="item"><div class="ic"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
+        <div><h3>Seguridad</h3><p>Una casa cuidada, para que los chicos y sus familias estén tranquilos.</p></div></div>
+      <div class="item"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7l3 2.2-1.2 3.6h-3.6L9 9.2z"/></svg></div>
+        <div><h3>Pruebas en clubes</h3><p>Coordinamos pruebas en clubes de Buenos Aires según el nivel de cada jugador.</p></div></div>
+      <div class="item"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+        <div><h3>Seguimiento personalizado</h3><p>Acompañamos a cada jugador y mantenemos informados a su familia o representante.</p></div></div>
+      <div class="item"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 22V12M12 12c-4 0-7-3-7-7 4 0 7 3 7 7zM12 12c4 0 7-3 7-7-4 0-7 3-7 7z"/></svg></div>
+        <div><h3>Parque, pileta, wifi y lavadero</h3><p>Espacios para descansar, recuperarse y estar en contacto con la familia.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LA CASA ===== -->
+<section id="la-casa">
+  <div class="container">
+    <div class="head">
+      <span class="eyebrow">La casa</span>
+      <h2>Un lugar pensado para deportistas</h2>
+      <p>Varias alas dentro del predio, para que cada grupo tenga su espacio.</p>
+    </div>
+    <div class="gallery">
+      <img src="img/pension/habitaciones.jpg" alt="Habitaciones con baño privado" loading="lazy">
+      <img src="img/pension/comedor.jpg" alt="Salón comedor" loading="lazy">
+      <img src="img/pension/salon.jpg" alt="Salón de estar" loading="lazy">
+      <img src="img/pension/cocina.jpg" alt="Cocina completa" loading="lazy">
+      <img src="img/pension/alas.jpg" alt="Alas separadas" loading="lazy">
+      <img src="img/pension/lavadero.jpg" alt="Lavadero" loading="lazy">
+    </div>
+    <p class="note">Fotos reales de la casa, tomadas durante la refacción.</p>
+  </div>
+</section>
+
+<!-- ===== PARA QUIÉN ===== -->
+<section class="soft">
+  <div class="container">
+    <div class="head">
+      <span class="eyebrow">Para quién</span>
+      <h2>Para jugadores, familias y representantes</h2>
+    </div>
+    <div class="grid-2">
+      <div class="who">
+        <h3>Jugadores y familias</h3>
+        <p>Si tu hijo quiere probarse en Buenos Aires, lo recibimos en la casa, lo acompañamos día a día y coordinamos pruebas en clubes según su nivel. La familia sabe siempre cómo está.</p>
+      </div>
+      <div class="who">
+        <h3>Representantes</h3>
+        <p>Si traés jugadores a Buenos Aires, te ofrecemos dónde alojarlos con todo resuelto: pensión completa, control las 24 horas y seguimiento. Vos te ocupás de su carrera; nosotros, de que estén bien.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONDICIONES ===== -->
+<section class="dark">
+  <div class="container">
+    <div class="head">
+      <span class="eyebrow" style="color: var(--lima);">Condiciones</span>
+      <h2>Lo que tenés que saber</h2>
+    </div>
+    <div class="conds">
+      <div class="cond"><div class="k">Deporte</div><div class="v">Fútbol masculino</div></div>
+      <div class="cond"><div class="k">Edades</div><div class="v">A partir de categoría 2013</div></div>
+      <div class="cond"><div class="k">Estadía</div><div class="v">A convenir</div></div>
+      <div class="cond"><div class="k">Precio</div><div class="v">A consultar</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CÓMO FUNCIONA ===== -->
+<section>
+  <div class="container">
+    <div class="head">
+      <span class="eyebrow">Cómo funciona</span>
+      <h2>Simple y directo</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="num">1</div><h3>Nos escribís</h3><p>Cuántos jugadores, edades y desde cuándo.</p></div>
+      <div class="step"><div class="num">2</div><h3>Te pasamos la propuesta</h3><p>Precio y condiciones a medida, sin sorpresas.</p></div>
+      <div class="step"><div class="num">3</div><h3>Llegan a la casa</h3><p>Los recibimos y se instalan con todo resuelto.</p></div>
+      <div class="step"><div class="num">4</div><h3>Seguimiento</h3><p>Acompañamos a cada jugador durante toda la estadía.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta soft">
+  <div class="container">
+    <h2>¿Tenés un jugador que quiere dar el salto?</h2>
+    <p>Escribinos y te contamos todo sobre la pensión.</p>
+    <div style="display: flex; gap: 14px; flex-wrap: wrap; justify-content: center;">
+      <a class="btn btn-primary" href="https://wa.me/5491169625784?text=Hola%2C%20quiero%20info%20sobre%20la%20pensi%C3%B3n%20para%20futbolistas" target="_blank" rel="noopener">WhatsApp: 11 6962-5784</a>
+      <a class="btn btn-ghost" href="mailto:contacto.grupoombu@gmail.com?subject=Pensi%C3%B3n%20para%20futbolistas">contacto.grupoombu@gmail.com</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<div class="footer">
+  <div class="container">
+    <a class="brand" href="index.html"><img src="img/logo.jpg" alt="Grupo Ombú"><small>© Grupo Ombú — Toda la Argentina y el exterior</small></a>
+    <a class="back" href="index.html#servicios">← Volver a todas las propuestas</a>
+  </div>
+</div>
+
+</body>
+</html>
