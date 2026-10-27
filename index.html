@@ -103,7 +103,9 @@
   .dest p { font-size: 18px; margin-top: 14px; }
 
   .padel { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
-  .padel img { width: 100%; height: 480px; object-fit: cover; border-radius: 28px; }
+  .padel-fotos { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .padel-fotos img { width: 100%; height: 190px; object-fit: cover; border-radius: 20px; }
+  .padel-fotos img.main { grid-column: 1 / -1; height: 340px; object-position: center 45%; border-radius: 28px; }
   .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
   .chips span { border: 2px solid var(--lima); color: var(--lima); border-radius: 99px; padding: 10px 18px; font-weight: 700; font-size: 14px; }
 
@@ -160,7 +162,9 @@
     .incl { grid-template-columns: 1fr; }
     .quiz { padding: 26px; }
     .card { min-height: 340px; }
-    .padel img, .about img { height: 340px; }
+    .about img { height: 340px; }
+    .padel-fotos img.main { height: 260px; }
+    .padel-fotos img { height: 150px; }
     .dest img { height: 260px; }
   }
   @media (max-width: 560px) { .cards4 { grid-template-columns: 1fr; } }
@@ -200,7 +204,7 @@
     <div class="cards4">
       <a class="card rv" href="#giras"><img src="img/nueva/futbol-abrazo.jpg" alt="" loading="lazy"><div><h3>Pretemporadas</h3><p>Para que el plantel llegue armado al inicio del año.</p><span class="more">Ver más →</span></div></a>
       <a class="card rv" href="#giras"><img src="img/nueva/voley-equipo.jpg" alt="" loading="lazy"><div><h3>Viajes de fin de año</h3><p>Para cerrar la temporada jugando y compartiendo.</p><span class="more">Ver más →</span></div></a>
-      <a class="card rv" href="#padel"><img src="img/nueva/padel.jpg" alt="" loading="lazy"><div><h3>Inmersiones de pádel</h3><p>Fines de semana de pádel para grupos, con todo resuelto.</p><span class="more">Ver más →</span></div></a>
+      <a class="card rv" href="#padel"><img src="img/nueva/padel-festejo.jpg" alt="" loading="lazy" style="object-position: center 25%"><div><h3>Inmersiones de pádel</h3><p>Fines de semana de pádel para grupos, con todo resuelto.</p><span class="more">Ver más →</span></div></a>
     </div>
   </div>
 </section>
@@ -290,12 +294,16 @@
 
 <section class="dark" id="padel">
   <div class="wrap padel">
-    <img class="rv" src="img/nueva/padel2.jpg" alt="" loading="lazy">
+    <div class="padel-fotos rv">
+      <img class="main" src="img/nueva/padel-mixto.jpg" alt="Grupo jugando al pádel" loading="lazy">
+      <img src="img/nueva/padel-cata.jpg" alt="Cata de vinos" loading="lazy">
+      <img src="img/nueva/padel-selfie.jpg" alt="Amigas después de jugar al pádel" loading="lazy">
+    </div>
     <div>
       <div class="k rv">Inmersiones de pádel</div>
       <h2 class="rv">Un finde de pádel <span class="thin">con tu grupo.</span></h2>
-      <p class="lead rv">Hotel cerca del mar, canchas reservadas, comidas y experiencias. Ustedes solo llegan y juegan.</p>
-      <div class="chips rv"><span>Hotel</span><span>Pensión completa</span><span>Canchas</span><span>Cata de vinos</span><span>Atardecer en la playa</span><span>Asado</span></div>
+      <p class="lead rv">Mar, sierras, río o ciudad. Hotel, canchas reservadas, comidas y experiencias. Ustedes solo llegan y juegan.</p>
+      <div class="chips rv"><span>Hotel</span><span>Pensión completa</span><span>Canchas</span><span>Cata de vinos</span><span>Partido amistoso</span><span>Asado</span></div>
       <a class="btn fill rv" style="margin-top:30px" href="https://wa.me/5491169625784?text=Hola!%20Quiero%20info%20de%20las%20inmersiones%20de%20p%C3%A1del" target="_blank"><svg><use href="#wa"/></svg>Quiero sumarme</a>
     </div>
   </div>
